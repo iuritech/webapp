@@ -7,9 +7,8 @@ const port = process.env.PORT || 3000;
 // Your Cosmos DB configuration
 const endpoint = process.env.COSMOS_DB_ENDPOINT; // Cosmos DB endpoint
 const key = process.env.COSMOS_DB_KEY; // Cosmos DB key
-const databaseId = 'tonytectosDB';
-const containerId = 'tonytectosContainer';
-
+const databaseId = process.env.COSMOS_DB_DATABASE; // Cosmos DB database ID
+const containerId = process.env.COSMOS_DB_CONTAINER; // Cosmos DB container ID
 // Initialize Cosmos client
 const client = new CosmosClient({ endpoint, key });
 
