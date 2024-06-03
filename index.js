@@ -7,7 +7,7 @@ const { CosmosClient } = require('@azure/cosmos');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const client = new CosmosClient({
+var client = new CosmosClient({
     endpoint: process.env.COSMOS_DB_ENDPOINT,
     key: process.env.COSMOS_DB_KEY
 });
