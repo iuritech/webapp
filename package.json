@@ -1,14 +1,14 @@
 {
-  "name": "otario_bank_node",
+  "name": "webapp",
   "version": "1.0.0",
-  "description": "vulnerable website for educational purposes",
+  "description": "tonytectos webapp",
   "main": "index.js",
-  "author": "",
+  "author": "teamSimoes",
   "license": "ISC",
   "dependencies": {
-    "@azure/cosmos": "^3.17.3",
+    "express": "^4.17.1",
+    "@azure/cosmos": "^3.12.0",
     "dotenv": "^10.0.0",
-    "ejs": "^3.1.6",
-    "express": "^4.19.2"
+    "ejs": "^3.1.6"
   }
 }
