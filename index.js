@@ -1,3 +1,23 @@
+// Author: Osvaldo Santos oas@ipcb.pt
+
+// First you have to create a folder for the project
+//      mkdir filtros
+//      cd filtros
+
+// Then, you have to install the module to connect to Azure Cosmos DB
+//      npm install @azure/cosmos
+
+// And also the module to read environment variables
+//      npm install dotenv
+
+// You also have to create the .env file where the environment variables will be defined
+//      nano .env
+// And inside the .env file, you must add two variables, with the values obtained from Azure.
+// The following values are only examples, replace with your own values
+//      COSMOS_ENDPOINT="https://cosmos-vitor783457.documents.azure.com:443/"
+//      COSMOS_KEY="X1SE9PKSJhh2VFiueZAgArxb6Db7MRWLq4bulL1wdR1oMVkzkvHmi1phD9I1ZTgzUwRFJv4JsjauACDbi32UTg=="
+
+
 // Module imports
 require('dotenv').config()
 const CosmosClient = require('@azure/cosmos').CosmosClient
@@ -7,7 +27,7 @@ async function read_data_from_cosmos_db() {
 
     // Provide required connection from environment variables in the .env file
     const key = process.env.COSMOS_DB_KEY;
-    const endpoint = process.env.COSMOS_DB_ENDPOINT;
+    const endpoint = process.env.COSMOS_DB_ENDPOINT=;
 
     console.log(`Using the endpoint: ${endpoint}`);
 
@@ -22,7 +42,7 @@ async function read_data_from_cosmos_db() {
 
     // preparing the query
     const querySpec = {
-        query: 'SELECT * FROM Items'
+        query: 'SELECT * FROM tonytectosContainer'
     };
 
     // Get items
@@ -33,7 +53,7 @@ async function read_data_from_cosmos_db() {
 
     // show the results
     for (const item of resources) {
-        console.log(`${item.artigo}`);
+        console.log(`${item.codigo_EAN} \t ${item.fabricante}   \t ${item.stock_atual} \t ${item.stock_minimo} `);
     }
 
 }
