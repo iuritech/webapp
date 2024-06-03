@@ -1,7 +1,11 @@
 var express = require('express')
-
 var app = express()
 const port = process.env.PORT || 3000
+
+// new variables
+const { CosmosClient } = require('@azure/cosmos');
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(express.static('public'))
 
