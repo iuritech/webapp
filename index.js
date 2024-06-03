@@ -8,7 +8,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(express.static('public'))
-const app = express();
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
