@@ -27,7 +27,7 @@ async function read_data_from_cosmos_db() {
 
     // Provide required connection from environment variables in the .env file
     const key = process.env.COSMOS_DB_KEY;
-    const endpoint = process.env.COSMOS_DB_ENDPOINT=;
+    const endpoint = process.env.COSMOS_DB_ENDPOINT;
 
     console.log(`Using the endpoint: ${endpoint}`);
 
@@ -46,7 +46,7 @@ async function read_data_from_cosmos_db() {
     };
 
     // Get items
-    const { resources } = await container.artigos.query(querySpec).fetchAll();
+    const { resources } = await container.items.query(querySpec).fetchAll();
 
     // Print headings
     console.log(`\nReference \t Manufacturer \t Stock \t Minimum`);
