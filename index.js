@@ -8,11 +8,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 
-const client = new CosmosClient({
-    endpoint: process.env.COSMOS_DB_ENDPOINT,
-    key: process.env.COSMOS_DB_KEY
-});
-
 app.use(express.static('public'))
 const app = express();
 app.get('/', function (req, res) {
