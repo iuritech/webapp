@@ -1,4 +1,4 @@
-const express = require('express');
+var express = require('express');
 const { CosmosClient } = require('@azure/cosmos');
 const dotenv = require('dotenv');
 
