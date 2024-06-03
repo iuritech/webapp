@@ -7,10 +7,10 @@ const { CosmosClient } = require('@azure/cosmos');
 const dotenv = require('dotenv');
 dotenv.config();
 
-var client = new CosmosClient({
-    endpoint: process.env.COSMOS_DB_ENDPOINT,
-    key: process.env.COSMOS_DB_KEY
-});
+// var client = new CosmosClient({
+//     endpoint: process.env.COSMOS_DB_ENDPOINT,
+//     key: process.env.COSMOS_DB_KEY
+// });
 
 app.use(express.static('public'))
 app.get('/', function (req, res) {
