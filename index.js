@@ -6,8 +6,8 @@ const CosmosClient = require('@azure/cosmos').CosmosClient
 async function read_data_from_cosmos_db() {
 
     // Provide required connection from environment variables in the .env file
-    const key = process.env.COSMOS_KEY;
-    const endpoint = process.env.COSMOS_ENDPOINT;
+    const key = process.env.COSMOS_DB_KEY;
+    const endpoint = process.env.COSMOS_DB_ENDPOINT;
 
     console.log(`Using the endpoint: ${endpoint}`);
 
@@ -22,7 +22,7 @@ async function read_data_from_cosmos_db() {
 
     // preparing the query
     const querySpec = {
-        query: 'SELECT * FROM filtros'
+        query: 'SELECT * FROM Items'
     };
 
     // Get items
