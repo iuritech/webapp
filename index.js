@@ -46,7 +46,7 @@ async function read_data_from_cosmos_db() {
     };
 
     // Get items
-    const { resources } = await container.items.query(querySpec).fetchAll();
+    const { resources } = await container.artigos.query(querySpec).fetchAll();
 
     // Print headings
     console.log(`\nReference \t Manufacturer \t Stock \t Minimum`);
