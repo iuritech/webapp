@@ -35,7 +35,6 @@ const CosmosClient = require('@azure/cosmos').CosmosClient
     // for (const item of resources) {
     //     console.log(`${item.id} \t ${item.artigos}`);
     // }
-}
 
 //termina filtros
 
