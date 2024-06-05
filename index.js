@@ -10,7 +10,7 @@ async function read_data_from_cosmos_db() {
     const key = process.env.COSMOS_KEY;
     const endpoint = process.env.COSMOS_ENDPOINT;
 
-    console.log(`Using the endpoint: ${endpoint}`);
+//    console.log(`Using the endpoint: ${endpoint}`);
 
     // Authenticate to Azure Cosmos DB
     const cosmosClient = new CosmosClient({ endpoint, key });
