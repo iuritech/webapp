@@ -4,7 +4,7 @@ require('dotenv').config()
 const CosmosClient = require('@azure/cosmos').CosmosClient
 
 // codigo filtros dá erro no deploy do azure mas funciona com npm index.js
-async function read_data_from_cosmos_db() {
+function read_data_from_cosmos_db() {
 
     // // Provide required connection from environment variables in the .env file
     // const key = process.env.COSMOS_KEY;
