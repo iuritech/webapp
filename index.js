@@ -1,20 +1,45 @@
-// // index.js
-// const express = require('express');
-// const path = require('path');
 
-// const app = express();
-// const port = 8080;
+// Module imports
+require('dotenv').config()
+const CosmosClient = require('@azure/cosmos').CosmosClient
 
-// // Serve static files from the "public" directory
-// app.use(express.static(path.join(__dirname, 'public')));
+// This function is an example of how to interface with Cosmos DB
+async function read_data_from_cosmos_db() {
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// });
+    // Provide required connection from environment variables in the .env file
+    const key = process.env.COSMOS_KEY;
+    const endpoint = process.env.COSMOS_ENDPOINT;
 
-// app.listen(port, () => {
-//   console.log(`Server is running at http://localhost:${port}`);
-// });
+    console.log(`Using the endpoint: ${endpoint}`);
+
+    // Authenticate to Azure Cosmos DB
+    const cosmosClient = new CosmosClient({ endpoint, key });
+
+    // Get the database object
+    const db=cosmosClient.database('tonytectosDB');
+
+    // Get the container object
+    const container=db.container('tonytectosContainer');
+
+    // preparing the query
+    const querySpec = {
+        query: 'SELECT * FROM items'
+    };
+
+    // Get items
+    const { resources } = await container.items.query(querySpec).fetchAll();
+
+    // Print headings
+    console.log(`\nId \t Nome`);
+
+    // show the results
+    for (const item of resources) {
+        console.log(`${item.id} \t ${item.artigos}`);
+    }
+
+}
+// call the function
+read_data_from_cosmos_db();
 
 var express = require('express')
 
@@ -30,4 +55,3 @@ app.get('/', function (req, res) {
 app.listen(port, function () {
   console.log('Example app listening on port ${port}!');
 });
-
