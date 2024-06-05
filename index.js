@@ -12,21 +12,21 @@ const CosmosClient = require('@azure/cosmos').CosmosClient
 //    console.log(`Using the endpoint: ${endpoint}`);
 
     // Authenticate to Azure Cosmos DB
-    const cosmosClient = new CosmosClient({ endpoint, key });
+    // const cosmosClient = new CosmosClient({ endpoint, key });
 
-    // Get the database object
-    const db=cosmosClient.database('tonytectosDB');
+    // // Get the database object
+    // const db=cosmosClient.database('tonytectosDB');
 
-    // Get the container object
-    const container=db.container('tonytectosContainer');
+    // // Get the container object
+    // const container=db.container('tonytectosContainer');
 
-    // preparing the query
-    const querySpec = {
-        query: 'SELECT * FROM items'
-    };
+    // // preparing the query
+    // const querySpec = {
+    //     query: 'SELECT * FROM items'
+    // };
 
-    // Get items
-    const { resources } = await container.items.query(querySpec).fetchAll();
+    // // Get items
+    // const { resources } = await container.items.query(querySpec).fetchAll();
 
     // // Print headings
     // console.log(`\nId \t Nome`);
