@@ -12,7 +12,7 @@ const CosmosClient = require('@azure/cosmos').CosmosClient
 //    console.log(`Using the endpoint: ${endpoint}`);
 
     // Authenticate to Azure Cosmos DB
-    var cosmosClient = new CosmosClient({ endpoint, key });
+    // const cosmosClient = new CosmosClient({ endpoint, key });
 
     // // Get the database object
     // const db=cosmosClient.database('tonytectosDB');
