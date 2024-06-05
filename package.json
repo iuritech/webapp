@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/iuritech/webapp/issues"
   },
-  "homepage": "https://github.com/iuritech/webapp#readme"
+  "homepage": "https://github.com/iuritech/webapp#readme",
+  "dependencies": {
+    "@azure/cosmos": "^4.0.0",
+    "dotenv": "^16.4.5"
+  }
 }
