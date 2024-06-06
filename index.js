@@ -1,15 +1,15 @@
-
 // Module imports
 require('dotenv').config()
 const CosmosClient = require('@azure/cosmos').CosmosClient
 
-// codigo filtros dá erro no deploy do azure mas funciona com npm index.js
+// This function is an example of how to interface with Cosmos DB
+async function read_data_from_cosmos_db() {
 
     // Provide required connection from environment variables in the .env file
     const key = process.env.COSMOS_KEY;
     const endpoint = process.env.COSMOS_ENDPOINT;
 
-   console.log(`Using the endpoint: ${endpoint}`);
+    console.log(`Using the endpoint: ${endpoint}`);
 
     // Authenticate to Azure Cosmos DB
     const cosmosClient = new CosmosClient({ endpoint, key });
@@ -29,12 +29,17 @@ const CosmosClient = require('@azure/cosmos').CosmosClient
     const { resources } = await container.items.query(querySpec).fetchAll();
 
     // Print headings
-    console.log(`\nId \t Nome`);
+    console.log(`\nid \t nome`);
 
     // show the results
     for (const item of resources) {
         console.log(`${item.id} \t ${item.artigos}`);
     }
+
+}
+
+// call the function
+read_data_from_cosmos_db();
 
 //termina filtros
 
