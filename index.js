@@ -9,13 +9,13 @@ async function read_data_from_cosmos_db() {
     const key = process.env.COSMOS_KEY;
     const endpoint = process.env.COSMOS_ENDPOINT;
 
-    // console.log(`Using the endpoint: ${endpoint}`);
+    console.log(`Using the endpoint: ${endpoint}`);
 
-    // // Authenticate to Azure Cosmos DB
-    // const cosmosClient = new CosmosClient({ endpoint, key });
+    // Authenticate to Azure Cosmos DB
+    const cosmosClient = new CosmosClient({ endpoint, key });
 
-    // // Get the database object
-    // const db=cosmosClient.database('tonytectosDB');
+    // Get the database object
+    const db=cosmosClient.database('tonytectosDB');
 
     // // Get the container object
     // const container=db.container('tonytectosContainer');
