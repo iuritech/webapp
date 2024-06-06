@@ -25,8 +25,8 @@ async function read_data_from_cosmos_db() {
         query: 'SELECT * FROM items'
     };
 
-    // // Get items
-    // const { resources } = await container.items.query(querySpec).fetchAll();
+    // Get items
+    const { resources } = await container.items.query(querySpec).fetchAll();
 
     // // Print headings
     // console.log(`\nid \t nome`);
