@@ -20,10 +20,10 @@ async function read_data_from_cosmos_db() {
     // Get the container object
     const container=db.container('tonytectosContainer');
 
-    // // preparing the query
-    // const querySpec = {
-    //     query: 'SELECT * FROM items'
-    // };
+    // preparing the query
+    const querySpec = {
+        query: 'SELECT * FROM items'
+    };
 
     // // Get items
     // const { resources } = await container.items.query(querySpec).fetchAll();
