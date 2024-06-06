@@ -28,13 +28,13 @@ async function read_data_from_cosmos_db() {
     // Get items
     const { resources } = await container.items.query(querySpec).fetchAll();
 
-    // // Print headings
-    // console.log(`\nid \t nome`);
+    // Print headings
+    console.log(`\nid \t nome`);
 
-    // // show the results
-    // for (const item of resources) {
-    //     console.log(`${item.id} \t ${item.artigos}`);
-    // }
+    // show the results
+    for (const item of resources) {
+        console.log(`${item.id} \t ${item.artigos}`);
+    }
 
 }
 
