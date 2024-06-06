@@ -1,6 +1,15 @@
 // Module imports
 require('dotenv').config()
 const CosmosClient = require('@azure/cosmos').CosmosClient
+var express = require('express')
+var app = express()
+const port = process.env.PORT || 3000
+
+app.use(express.static('public'))
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
 
 // This function is an example of how to interface with Cosmos DB
 async function read_data_from_cosmos_db() {
@@ -23,10 +32,6 @@ async function read_data_from_cosmos_db() {
     // preparing the query
     const querySpec = { query: 'SELECT * FROM items' };
    
-    db.query(querySpec.query, (err, results) => {
-          if (err) throw err;
-          res.json(results);
-    });
 
     // ISTO ESTA A DAR ERRO NO AZURE
     // Get items
@@ -46,17 +51,9 @@ read_data_from_cosmos_db();
 
 //termina filtros
 
-var express = require('express')
-
-var app = express()
-const port = process.env.PORT || 3000
-
-app.use(express.static('public'))
-
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
 app.listen(port, function () {
   console.log('Example app listening on port ${port}!');
 });
+
+
+
