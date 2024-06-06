@@ -6,8 +6,8 @@ const CosmosClient = require('@azure/cosmos').CosmosClient
 // codigo filtros dá erro no deploy do azure mas funciona com npm index.js
 
     // Provide required connection from environment variables in the .env file
-    const key = process.env.COSMOS_KEY;
-    const endpoint = process.env.COSMOS_ENDPOINT;
+    // const key = process.env.COSMOS_KEY;
+    // const endpoint = process.env.COSMOS_ENDPOINT;
 
 //    console.log(`Using the endpoint: ${endpoint}`);
 
