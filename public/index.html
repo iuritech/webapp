@@ -41,31 +41,7 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Optimise o seu espaço v17</h1>
-                        
-                        <h1>Cosmos DB Data</h1>
-                            <div id="data"></div>
-                            <script>
-                                // Fetch data from the server
-                                async function fetchData() {
-                                    try {
-                                        const response = await fetch('/data');
-                                        const data = await response.json();
-                                        // Display the data
-                                        const dataDiv = document.getElementById('data');
-                                        data.forEach(item => {
-                                            const itemDiv = document.createElement('div');
-                                            itemDiv.textContent = `ID: ${item.id}, Nome: ${item.artigos}`;
-                                            dataDiv.appendChild(itemDiv);
-                                        });
-                                    } catch (error) {
-                                        console.error('Error fetching data:', error);
-                                    }
-                                }
-                                // Call fetchData when the page loads
-                                window.onload = fetchData;
-                            </script>
-
+                        <h1 class="text-white font-weight-bold">Optimise o seu espaço</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
