@@ -1,22 +1,27 @@
 // Module imports
-require('dotenv').config()
-const CosmosClient = require('@azure/cosmos').CosmosClient
-var express = require('express')
-var app = express()
-const port = process.env.PORT || 3000
+require('dotenv').config();
+const { CosmosClient } = require('@azure/cosmos');
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-// This function is an example of how to interface with Cosmos DB
-async function read_data_from_cosmos_db() {
-
+// Route to get data from Cosmos DB
+app.get('/data', async function (req, res) {
+  try {
     // Provide required connection from environment variables in the .env file
     const key = process.env.COSMOS_KEY;
     const endpoint = process.env.COSMOS_ENDPOINT;
+
+    if (!key || !endpoint) {
+      throw new Error('Cosmos DB endpoint and key must be provided in environment variables');
+    }
 
     console.log(`Using the endpoint: ${endpoint}`);
 
@@ -24,36 +29,27 @@ async function read_data_from_cosmos_db() {
     const cosmosClient = new CosmosClient({ endpoint, key });
 
     // Get the database object
-    const db=cosmosClient.database('tonytectosDB');
+    const db = cosmosClient.database('tonytectosDB');
 
     // Get the container object
-    const container=db.container('tonytectosContainer');
+    const container = db.container('tonytectosContainer');
 
-    // preparing the query
-    const querySpec = { query: 'SELECT * FROM items' };
-   
+    // Preparing the query
+    const querySpec = { query: 'SELECT * FROM c' };  // Using 'c' as the alias for the items
 
-    // ISTO ESTA A DAR ERRO NO AZURE
     // Get items
-    // const { resources } = await container.items.query(querySpec).fetchAll();
-    // // Print headings
-    // console.log(`\nid \t nome`);
-    // // show the results
-    // for (const item of resources) {
-    //     console.log(`${item.id} \t ${item.artigos}`);
-    // }
-    // termina erro
+    const { resources } = await container.items.query(querySpec).fetchAll();
 
-}
-
-// call the function
-read_data_from_cosmos_db();
-
-//termina filtros
-
-app.listen(port, function () {
-  console.log('Example app listening on port ${port}!');
+    // Send the results as JSON
+    res.json(resources);
+  } catch (err) {
+    console.error('Error reading from Cosmos DB', err);
+    res.status(500).send('Error reading from Cosmos DB');
+  }
 });
 
-
+// Start the server
+app.listen(port, function () {
+  console.log(`Example app listening on port ${port}!`);
+});
 
