@@ -26,7 +26,7 @@ async function read_data_from_cosmos_db() {
     };
 
     // Get items
-    const { resources } = await container.items.query(querySpec).fetchAll();
+    // const { resources } = await container.items.query(querySpec).fetchAll();
     
     // ISTO ESTA A DAR ERRO NO AZURE
     // // Print headings
