@@ -22,18 +22,22 @@ async function read_data_from_cosmos_db() {
 
     // preparing the query
     const querySpec = { query: 'SELECT * FROM items' };
+   
+    db.query(querySpec.query, (err, results) => {
+          if (err) throw err;
+          res.json(results);
+    });
 
+    // ISTO ESTA A DAR ERRO NO AZURE
     // Get items
     // const { resources } = await container.items.query(querySpec).fetchAll();
-    
-    // ISTO ESTA A DAR ERRO NO AZURE
     // // Print headings
     // console.log(`\nid \t nome`);
-
     // // show the results
     // for (const item of resources) {
     //     console.log(`${item.id} \t ${item.artigos}`);
     // }
+    // termina erro
 
 }
 
@@ -45,7 +49,7 @@ read_data_from_cosmos_db();
 var express = require('express')
 
 var app = express()
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3000
 
 app.use(express.static('public'))
 

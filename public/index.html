@@ -41,15 +41,24 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Optimise o seu espaço v12</h1>
+                        <h1 class="text-white font-weight-bold">Optimise o seu espaço v13</h1>
                         
-                        <!-- listar da db -->
-                         <!-- <h1>Items List</h1> -->
-                         <!--    <ul> -->
-                         <!--        <% items.forEach(item => { %> -->
-                         <!--            <li><%= item.id %>: <%= item.name %></li> -->
-                         <!--        <% }) %> -->
-                         <!--    </ul> -->
+                    <h1>Items List</h1>
+                        <ul id="items-list"></ul>
+                        <script>
+                            // Fetch data from the server and display it
+                            fetch('/api/items')
+                                .then(response => response.json())
+                                .then(data => {
+                                    const itemsList = document.getElementById('items-list');
+                                    data.forEach(item => {
+                                        const listItem = document.createElement('li');
+                                        listItem.textContent = JSON.stringify(item); // Adjust this to display the item properly
+                                        itemsList.appendChild(listItem);
+                                    });
+                                })
+                                .catch(error => console.error('Error fetching items:', error));
+                        </script>
 
                         <hr class="divider" />
                     </div>
