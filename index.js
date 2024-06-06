@@ -17,8 +17,8 @@ async function read_data_from_cosmos_db() {
     // Get the database object
     const db=cosmosClient.database('tonytectosDB');
 
-    // // Get the container object
-    // const container=db.container('tonytectosContainer');
+    // Get the container object
+    const container=db.container('tonytectosContainer');
 
     // // preparing the query
     // const querySpec = {
