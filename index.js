@@ -42,15 +42,27 @@ app.get('/items', async function (req, res) {
     // Generate HTML for each item
     const html = resources.map(item => `
       <div class="col-lg-4 col-sm-6">
-        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="${item.id}">
+        <a class="portfolio-box" href="https://simoesstorage.blob.core.windows.net/mycontainer/${item.id}fullsize.jpg" title="Project Name">
           <img class="img-fluid" src="https://simoesstorage.blob.core.windows.net/mycontainer/${item.id}.jpg" alt="...">
           <div class="portfolio-box-caption">
             <div class="project-category text-white-50">Category</div>
-            <div class="project-name">${item.id}</div>
+            <div class="project-name">${item.artigos}</div>
           </div>
         </a>
       </div>
     `).join('');
+
+  // <div class="col-lg-4 col-sm-6"> 
+  // <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name"> 
+  // <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." /> 
+  // <div class="portfolio-box-caption"> 
+  // <div class="project-category text-white-50">Category</div> 
+  // <div class="project-name">Project Name</div> 
+  // </div> 
+  // </a> 
+  // </div>
+
+
 
     // Send the generated HTML as response
     res.send(html);
