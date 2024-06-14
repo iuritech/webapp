@@ -5,6 +5,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
+const endpoint = "https://simoes.documents.azure.com:443/";
 
 app.use(express.static('public'));
 
@@ -16,7 +17,6 @@ app.get('/items', async function (req, res) {
   try {
     // Provide required connection from environment variables in the .env file
     const key = process.env.COSMOS_KEY;
-    const endpoint = process.env.COSMOS_ENDPOINT;
 
     if (!key || !endpoint) {
       throw new Error('Cosmos DB endpoint and key must be provided in environment variables');
@@ -76,7 +76,6 @@ app.get('/data', async function (req, res) {
   try {
     // Provide required connection from environment variables in the .env file
     const key = process.env.COSMOS_KEY;
-    const endpoint = process.env.COSMOS_ENDPOINT;
 
     if (!key || !endpoint) {
       throw new Error('Cosmos DB endpoint and key must be provided in environment variables');
