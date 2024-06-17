@@ -42,8 +42,8 @@ app.get('/items', async function (req, res) {
     // Generate HTML for each item
     const html = resources.map(item => `
       <div class="col-lg-4 col-sm-6">
-        <a class="portfolio-box" href="https://simoesstorage.blob.core.windows.net/mycontainer/${item.id}fullsize.jpg" title="Project Name">
-          <img class="img-fluid" src="https://simoesstorage.blob.core.windows.net/mycontainer/${item.id}.jpg" alt="...">
+        <a class="portfolio-box" href="https://simoesstorage.blob.core.windows.net/mycontainer/${item.id}.jpg" title="Project Name">
+          <img class="img-fluid" src="https://simoesstorage.blob.core.windows.net/mycontainer/thumbnail_${item.id}.jpg" alt="...">
           <div class="portfolio-box-caption">
             <div class="project-category text-white-50">Category</div>
             <div class="project-name">${item.artigos}</div>
