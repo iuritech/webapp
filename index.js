@@ -5,8 +5,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
+// const endpoint = process.env.COSMOS_ENDPOINT;
 const endpoint = "https://simoes.documents.azure.com:443/";
-
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
